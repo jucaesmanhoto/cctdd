@@ -1,3 +1,4 @@
+import 'package:cctdd/app/core/local_storage/shared_preferences_facade.dart';
 import 'package:cctdd/app/features/number_trivia/presentation/pages/number_trivia_page.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
@@ -45,9 +46,9 @@ class AppModule extends MainModule {
             )),
         Bind(
           (i) => NumberTriviaLocalDataSource(
-              sharedPreferences: i.get<SharedPreferences>()),
+              sharedPreferences: i.get<SharedPreferencesFacade>()),
         ),
-        Bind((i) => Future.value(SharedPreferences.getInstance())),
+        Bind((i) => SharedPreferencesFacade()),
         Bind((i) => NumberTriviaRemoteDataSource(client: http.Client())),
       ];
 
