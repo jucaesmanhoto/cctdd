@@ -1,0 +1,30 @@
+name: cctdd
+description: &#x27;A new Flutter project. Created by Slidy&#x27;
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  dartz:
+  equatable:
+  data_connection_checker:
+  shared_preferences:
+  dio: ^3.0.9
+  flutter_mobx: ^1.0.1
+  mobx: ^1.1.0
+  flutter_modular: ^1.0.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  mockito: ^4.1.1
+  mobx_codegen: ^1.0.2
+  build_runner: ^1.8.0
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
