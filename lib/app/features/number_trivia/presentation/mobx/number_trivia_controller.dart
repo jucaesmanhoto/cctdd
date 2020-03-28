@@ -44,20 +44,24 @@ abstract class _NumberTriviaControllerBase with Store {
     isLoading = true;
     final inputEither = inputConverter.stringToUnsignedInteger(string: string);
     inputEither.fold((failure) {
+      triviaModel = null;
       error = Error(message: INVALID_INPUT_FAILURE_MESSAGE);
     }, (integer) async {
       final responseEither =
           await getConcreteNumberTrivia(params: Params(number: integer));
       _eitherFailureOrTrivia(responseEither);
+      error = null;
     });
     isLoading = false;
   }
 
   void _eitherFailureOrTrivia(Either<Failure, NumberTrivia> responseEither) {
     responseEither.fold((failure) {
+      triviaModel = null;
       error = Error(message: _mapFailureToString(failure: failure));
     }, (trivia) {
       triviaModel = trivia;
+      error = null;
     });
   }
 
@@ -65,6 +69,7 @@ abstract class _NumberTriviaControllerBase with Store {
     isLoading = true;
     final responseEither = await getRandomNumberTrivia();
     _eitherFailureOrTrivia(responseEither);
+    error = null;
     isLoading = false;
   }
 

@@ -1,10 +1,8 @@
 import 'dart:convert';
 
 import 'package:cctdd/app/core/error/exception.dart';
-import 'package:cctdd/app/core/error/failure.dart';
 import 'package:cctdd/app/features/number_trivia/data/datasources/number_trivia_remote_data_source_interface.dart';
 import 'package:cctdd/app/features/number_trivia/data/models/number_trivia_model.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
@@ -83,7 +81,6 @@ main() {
   });
 
   group('getRandomTriva', () {
-    final tNumber = 1;
     final tNumberTriviaModel = NumberTriviaModel.fromJson(
         jsonMap: jsonDecode(fixture(filename: 'trivia.json')));
     test(
