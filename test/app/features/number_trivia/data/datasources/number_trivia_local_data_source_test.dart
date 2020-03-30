@@ -1,25 +1,23 @@
 import 'dart:convert';
 
 import 'package:cctdd/app/core/error/exception.dart';
-import 'package:cctdd/app/core/local_storage/shared_preferences_facade.dart';
+import 'package:cctdd/app/core/local_storage/custom_shared_preferences.dart';
 import 'package:cctdd/app/features/number_trivia/data/datasources/number_trivia_local_data_source_interface.dart';
 import 'package:cctdd/app/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:matcher/matcher.dart' as matcher;
 
 import '../../../../fixtures/fixture_reader.dart';
 
-class MockSharedPreferencesFacade extends Mock
-    implements SharedPreferencesFacade {}
+class MockSharedPreferences extends Mock implements CustomSharedPreferences {}
 
 void main() {
   NumberTriviaLocalDataSource dataSource;
-  MockSharedPreferencesFacade mockSharedPreferences;
+  MockSharedPreferences mockSharedPreferences;
 
   setUp(() {
-    mockSharedPreferences = MockSharedPreferencesFacade();
+    mockSharedPreferences = MockSharedPreferences();
     dataSource =
         NumberTriviaLocalDataSource(sharedPreferences: mockSharedPreferences);
   });

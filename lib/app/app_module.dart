@@ -1,13 +1,11 @@
-import 'package:cctdd/app/core/local_storage/shared_preferences_facade.dart';
-import 'package:cctdd/app/features/number_trivia/presentation/pages/number_trivia_page.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
+import 'core/local_storage/custom_shared_preferences.dart';
 import 'core/network/network_info.dart';
 import 'core/util/input_converter.dart';
 import 'features/number_trivia/data/datasources/number_trivia_local_data_source_interface.dart';
@@ -16,7 +14,7 @@ import 'features/number_trivia/data/repositories/number_trivia_repository.dart';
 import 'features/number_trivia/domain/usecases/get_concrete_number_trivia.dart';
 import 'features/number_trivia/domain/usecases/get_random_number_trivia.dart';
 import 'features/number_trivia/presentation/mobx/number_trivia_controller.dart';
-import 'features/number_trivia/presentation/mobx/number_trivia_module.dart';
+import 'features/number_trivia/presentation/pages/number_trivia_page.dart';
 
 class AppModule extends MainModule {
   @override
@@ -46,9 +44,9 @@ class AppModule extends MainModule {
             )),
         Bind(
           (i) => NumberTriviaLocalDataSource(
-              sharedPreferences: i.get<SharedPreferencesFacade>()),
+              sharedPreferences: i.get<CustomSharedPreferences>()),
         ),
-        Bind((i) => SharedPreferencesFacade()),
+        Bind((i) => CustomSharedPreferences()),
         Bind((i) => NumberTriviaRemoteDataSource(client: http.Client())),
       ];
 

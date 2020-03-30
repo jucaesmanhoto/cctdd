@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:cctdd/app/core/local_storage/shared_preferences_facade.dart';
+import 'package:cctdd/app/core/local_storage/custom_shared_preferences.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../core/error/exception.dart';
@@ -15,7 +15,7 @@ const CACHED_NUMBER_TRIVIA = 'CACHED_NUMBER_TRIVIA';
 
 class NumberTriviaLocalDataSource
     implements NumberTriviaLocalDataSourceInterface {
-  final SharedPreferencesFacade sharedPreferences;
+  final CustomSharedPreferences sharedPreferences;
 
   NumberTriviaLocalDataSource({@required this.sharedPreferences});
 
