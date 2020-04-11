@@ -28,3 +28,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+scripts:
+  mobx: flutter pub run build_runner watch --delete-conflicting-outputs

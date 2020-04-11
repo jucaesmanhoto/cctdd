@@ -19,6 +19,10 @@ import 'features/number_trivia/presentation/mobx/number_trivia_controller.dart';
 import 'features/number_trivia/presentation/mobx/number_trivia_module.dart';
 
 class AppModule extends MainModule {
+  SharedPreferences sharedPreferences;
+
+  AppModule({this.sharedPreferences});
+
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
@@ -44,11 +48,9 @@ class AppModule extends MainModule {
               localDataSource: i.get<NumberTriviaLocalDataSource>(),
               remoteDataSource: i.get<NumberTriviaRemoteDataSource>(),
             )),
-        Bind(
-          (i) => NumberTriviaLocalDataSource(
-              sharedPreferences: i.get<SharedPreferencesFacade>()),
-        ),
-        Bind((i) => SharedPreferencesFacade()),
+        Bind((i) => NumberTriviaLocalDataSource(
+              sharedPreferences: sharedPreferences,
+            )),
         Bind((i) => NumberTriviaRemoteDataSource(client: http.Client())),
       ];
 
