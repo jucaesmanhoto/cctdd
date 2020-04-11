@@ -1,7 +1,7 @@
 # cctdd
 
 &#x27;A new Flutter project. Created by Slidy&#x27;
-based on the series [FLUTTER TDD CLEAN CODE COURSE](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/) by [Reso Coder](github.com/resocoder)
+based on the series [FLUTTER TDD CLEAN CODE COURSE](https://resocoder.com/2019/08/27/flutter-tdd-clean-architecture-course-1-explanation-project-structure/) by [Reso Coder](http://github.com/resocoder)
 
 
 ## Getting Started
