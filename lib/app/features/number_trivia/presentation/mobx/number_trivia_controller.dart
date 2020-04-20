@@ -41,6 +41,7 @@ abstract class _NumberTriviaControllerBase with Store {
 
   @action
   Future<void> getTriviaForConcreteNumber({String string}) async {
+    print('cheguei');
     isLoading = true;
     final inputEither = inputConverter.stringToUnsignedInteger(string: string);
     inputEither.fold((failure) {
