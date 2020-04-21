@@ -44,14 +44,17 @@ abstract class _NumberTriviaControllerBase with Store {
     print('cheguei');
     isLoading = true;
     final inputEither = inputConverter.stringToUnsignedInteger(string: string);
+    print(1);
     inputEither.fold((failure) {
       triviaModel = null;
       error = Error(message: INVALID_INPUT_FAILURE_MESSAGE);
+      print(2);
     }, (integer) async {
       final responseEither =
           await getConcreteNumberTrivia(params: Params(number: integer));
       _eitherFailureOrTrivia(responseEither);
       error = null;
+      print(3);
     });
     isLoading = false;
   }

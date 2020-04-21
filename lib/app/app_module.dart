@@ -25,14 +25,10 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
-
         Bind((i) =>
             NetworkInfo(connectionChecker: i.get<DataConnectionChecker>())),
         Bind((i) => DataConnectionChecker()),
         Bind((i) => InputConverter()),
-        //
-        //
-        //
         Bind((i) => NumberTriviaController(
               inputConverter: i.get<InputConverter>(),
               concrete: i.get<GetConcreteNumberTrivia>(),
@@ -47,10 +43,8 @@ class AppModule extends MainModule {
               localDataSource: i.get<NumberTriviaLocalDataSource>(),
               remoteDataSource: i.get<NumberTriviaRemoteDataSource>(),
             )),
-        Bind(
-          (i) =>
-              NumberTriviaLocalDataSource(sharedPreferences: sharedPreferences),
-        ),
+        Bind((i) =>
+            NumberTriviaLocalDataSource(sharedPreferences: sharedPreferences)),
         Bind((i) => NumberTriviaRemoteDataSource(client: http.Client())),
       ];
 
